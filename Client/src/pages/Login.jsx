@@ -22,8 +22,8 @@ const Login = () => {
             </div>
             <div class="mb-5">
               <input
-                type="email"
-                id="email"
+                type="password"
+                id="password"
                 class="bg-[#F7FBFF] focus:border-gray-300 text-gray-900 text-sm rounded-lg w-full p-3"
                 placeholder="Password"
                 required
