@@ -41,18 +41,18 @@ const Sidebar = () => {
         <Link to="/dashboard?tab=product">
           <div
             className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Product"
+              activeItem === "Shipment"
                 ? "bg-[#003DFF] text-white rounded-md"
                 : "hover:bg-gray-100"
             }`}
-            onClick={() => handleItemClick("Product")}
+            onClick={() => handleItemClick("Shipment")}
           >
             <img
               src={assets.shipment}
               alt=""
               className={`${activeItem === "Product" ? "brightness-200" : ""}`}
             />
-            <p>Product</p>
+            <p>Shipment</p>
           </div>
         </Link>
 

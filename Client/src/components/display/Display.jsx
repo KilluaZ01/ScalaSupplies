@@ -12,7 +12,7 @@ const Display = () => {
   const activePage = useSelector((state) => state.navigation.activePage);
 
   return (
-    <div className="h-full w-full rounded">
+    <div className="h-full w-full rounded bg-[#F9F9F9]">
       {activePage === "Dashboard" && <Display_Dashboard />}
       {activePage === "Inventory" && <Display_Inventory />}
       {activePage === "Shipment" && <Display_Shipment />}
