@@ -5,6 +5,13 @@ import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <div className="flex h-screen flex-row">
+      <div className="flex w-1/2 justify-center items-center px-8">
+        <img
+          className="object-cover w-full h-full"
+          src={assets.loginArt}
+          alt="Login Art"
+        />
+      </div>
       <div className="flex flex-col w-1/2 pl-40 py-20">
         <div>
           <h1 className="font-semibold text-3xl">Create an Account</h1>
@@ -93,7 +100,7 @@ const Register = () => {
             </button>
             <p className="flex text-sm justify-center">
               Already have an account?
-              <Link to="/signup">
+              <Link to="/login">
                 <span className="pl-1 text-blue-700 hover:underline">
                   Sign in
                 </span>
@@ -101,13 +108,6 @@ const Register = () => {
             </p>
           </form>
         </div>
-      </div>
-      <div className="flex w-1/2 justify-center items-center px-8">
-        <img
-          className="object-cover w-full h-full"
-          src={assets.loginArt}
-          alt="Login Art"
-        />
       </div>
     </div>
   );
