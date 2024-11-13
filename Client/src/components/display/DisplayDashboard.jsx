@@ -1,10 +1,11 @@
 import React from "react";
 import SlidingTab from "../SlidingTab";
 import Dropdown from "../Dropdown";
+import GridDisplay from "../GridDisplay";
 
 const DisplayDashboard = () => {
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <div className="flex flex-row justify-between p-6">
         <div>
           <SlidingTab />
@@ -12,6 +13,9 @@ const DisplayDashboard = () => {
         <div>
           <Dropdown />
         </div>
+      </div>
+      <div>
+        <GridDisplay />
       </div>
     </div>
   );

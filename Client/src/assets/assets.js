@@ -12,6 +12,10 @@ import shipment from "./sidebar_Shipment.svg";
 import orders from "./sidebar_Orders.svg";
 import customers from "./sidebar_Customer.svg";
 import help from "./sidebar_Help.svg";
+import check from "./DashCheck.svg";
+import money from "./DashMoney.svg";
+import truck from "./DashTruck.svg";
+import pack from "./DashPack.svg";
 
 export const assets = {
   logo,
@@ -28,4 +32,8 @@ export const assets = {
   orders,
   customers,
   help,
+  check,
+  pack,
+  truck,
+  money,
 };

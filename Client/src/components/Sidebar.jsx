@@ -50,7 +50,7 @@ const Sidebar = () => {
             <img
               src={assets.shipment}
               alt=""
-              className={`${activeItem === "Product" ? "brightness-200" : ""}`}
+              className={`${activeItem === "Shipment" ? "brightness-200" : ""}`}
             />
             <p>Shipment</p>
           </div>

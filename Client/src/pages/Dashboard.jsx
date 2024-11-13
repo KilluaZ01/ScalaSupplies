@@ -12,7 +12,7 @@ const Dashboard = () => {
 
       <div className="w-[80%] flex flex-col">
         <Dashboard_Nav />
-        <div className="flex-grow px-2 pb-2">
+        <div className="h-screen w-full flex flex-col px-2 pb-2">
           <Display />
         </div>
       </div>
