@@ -6,11 +6,11 @@ import GridDisplay from "../GridDisplay";
 const DisplayDashboard = () => {
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-row justify-between p-6">
+      <div className="flex flex-row justify-between p-4">
         <div>
           <SlidingTab />
         </div>
-        <div>
+        <div className="relative">
           <Dropdown />
         </div>
       </div>

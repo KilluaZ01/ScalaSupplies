@@ -22,26 +22,27 @@ const Dropdown = () => {
           New Shipment
         </button>
       </div>
-      <div
-        className={`mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        }`}
-        style={{
-          pointerEvents: isOpen ? "auto" : "none",
-        }}
-      >
-        <ul>
-          <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-            Week 1
-          </li>
-          <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-            Week 2
-          </li>
-          <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-            Week 3
-          </li>
-        </ul>
-      </div>
+      {isOpen && (
+        <div
+          className="absolute mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 ease-in-out"
+          style={{
+            top: "100%", // Positions it directly below the button
+            zIndex: 10, // Ensures it appears over other elements
+          }}
+        >
+          <ul>
+            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
+              Week 1
+            </li>
+            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
+              Week 2
+            </li>
+            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
+              Week 3
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
