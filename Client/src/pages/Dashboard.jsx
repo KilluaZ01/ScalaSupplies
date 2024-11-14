@@ -5,7 +5,7 @@ import Display from "../components/display/Display";
 
 const Dashboard = () => {
   return (
-    <div className="h-screen flex flex-row">
+    <div className="h-screen flex flex-row py-4">
       <div className="w-[20%] h-full">
         <Dashboard_Sidebar />
       </div>

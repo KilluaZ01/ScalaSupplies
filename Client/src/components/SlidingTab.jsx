@@ -23,7 +23,7 @@ const SlidingTab = () => {
   }, [activeTabIndex]);
 
   return (
-    <div className="relative flex h-12 rounded-xl border bg-[#F0F0F0] px-1 backdrop-blur-sm mx-auto">
+    <div className="relative flex rounded-xl border bg-[#F0F0F0] px-1 backdrop-blur-sm mx-auto">
       <span
         className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-xl transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
@@ -34,7 +34,7 @@ const SlidingTab = () => {
         <button
           key={tab.id}
           ref={(el) => (tabsRef.current[index] = el)}
-          className={`${
+          className={`text-sm p-2 ${
             activeTabIndex === index
               ? "text-gray-700"
               : "hover:text-neutral-400 "

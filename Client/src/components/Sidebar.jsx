@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActivePage } from "../redux/navigationSlice"; // Adjust path as needed
+import { setActivePage } from "../redux/navigationSlice";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import { GoSignOut } from "react-icons/go";
@@ -13,157 +13,84 @@ const Sidebar = () => {
     dispatch(setActivePage(item));
   };
 
+  const SidebarItem = ({ to, item, iconSrc }) => (
+    <Link to={to}>
+      <div
+        className={`flex flex-row gap-4 mb-2 p-2 md:text-sm items-center cursor-pointer ${
+          activeItem === item
+            ? "bg-[#003DFF] text-white rounded-md md:text-sm"
+            : "hover:bg-gray-100"
+        }`}
+        onClick={() => handleItemClick(item)}
+      >
+        <img
+          src={iconSrc}
+          alt={`${item} icon`}
+          className={`md:w-4 ${activeItem === item ? "brightness-200" : ""}`}
+        />
+        <p>{item}</p>
+      </div>
+    </Link>
+  );
+
   return (
-    <div className="flex px-6 py-4 h-full">
-      <div className="h-full px-3 py-4 overflow-y-auto flex flex-col gap-2">
-        <img className="w-[200px] mb-10" src={assets.logo} alt="" />
+    <div className="fixed flex flex-col h-full px-6 py-6">
+      <img
+        className="w-2/3 mb-10 mx-auto"
+        src={assets.logo}
+        alt="Company Logo"
+      />
 
-        <Link to="/dashboard">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Dashboard"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Dashboard")}
-          >
-            <img
-              src={assets.dashboard}
-              alt=""
-              className={`${
-                activeItem === "Dashboard" ? "brightness-200" : ""
-              }`}
-            />
-            <p>Dashboard</p>
-          </div>
-        </Link>
+      <SidebarItem
+        to="/dashboard"
+        item="Dashboard"
+        iconSrc={assets.dashboard}
+      />
+      <SidebarItem
+        to="/dashboard?tab=product"
+        item="Shipment"
+        iconSrc={assets.shipment}
+      />
+      <SidebarItem
+        to="/dashboard?tab=inventory"
+        item="Inventory"
+        iconSrc={assets.inventory}
+      />
+      <SidebarItem
+        to="/dashboard?tab=orders"
+        item="Orders"
+        iconSrc={assets.orders}
+      />
+      <SidebarItem
+        to="/dashboard?tab=customers"
+        item="Customers"
+        iconSrc={assets.customers}
+      />
 
-        <Link to="/dashboard?tab=product">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Shipment"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Shipment")}
-          >
-            <img
-              src={assets.shipment}
-              alt=""
-              className={`${activeItem === "Shipment" ? "brightness-200" : ""}`}
-            />
-            <p>Shipment</p>
-          </div>
-        </Link>
+      <div className="border-t border-[#c5c6c850] my-2 mr-6"></div>
 
-        <Link to="/dashboard?tab=inventory">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Inventory"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Inventory")}
-          >
-            <img
-              src={assets.inventory}
-              alt=""
-              className={`${
-                activeItem === "Inventory" ? "brightness-200" : ""
-              }`}
-            />
-            <p>Inventory</p>
-          </div>
-        </Link>
+      <SidebarItem
+        to="/dashboard?tab=help"
+        item="Help & Support"
+        iconSrc={assets.help}
+      />
+      <SidebarItem
+        to="/dashboard?tab=settings"
+        item="Settings"
+        iconSrc={assets.setting}
+      />
 
-        <Link to="/dashboard?tab=orders">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Orders"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Orders")}
-          >
-            <img
-              src={assets.orders}
-              alt=""
-              className={`${activeItem === "Orders" ? "brightness-200" : ""}`}
-            />
-            <p>Orders</p>
-          </div>
-        </Link>
-
-        <Link to="/dashboard?tab=customers">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Customers"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Customers")}
-          >
-            <img
-              src={assets.customers}
-              alt=""
-              className={`${
-                activeItem === "Customers" ? "brightness-200" : ""
-              }`}
-            />
-            <p>Customers</p>
-          </div>
-        </Link>
-
-        <div className="border-t border-[#c5c6c850] my-4 mr-6"></div>
-
-        <Link to="/dashboard?tab=help">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Help & Support"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Help & Support")}
-          >
-            <img
-              src={assets.help}
-              alt=""
-              className={`${
-                activeItem === "Help & Support" ? "brightness-200" : ""
-              }`}
-            />
-            <p>Help & Support</p>
-          </div>
-        </Link>
-
-        <Link to="/dashboard?tab=settings">
-          <div
-            className={`flex flex-row gap-4 p-3 items-center cursor-pointer ${
-              activeItem === "Settings"
-                ? "bg-[#003DFF] text-white rounded-md"
-                : "hover:bg-gray-100"
-            }`}
-            onClick={() => handleItemClick("Settings")}
-          >
-            <img
-              src={assets.setting}
-              alt=""
-              className={`${activeItem === "Settings" ? "brightness-200" : ""}`}
-            />
-            <p>Settings</p>
-          </div>
-        </Link>
-        <div className="mt-auto flex flex-row items-center gap-3">
-          <img
-            className="rounded-full h-[25px] w-[25px] object-cover"
-            src={assets.facebookIcon}
-          />
-          <div>
-            <p className="text-md">Arik Rai</p>
-            <p className="text-xs text-gray-600">raiarik97@gmail.com</p>
-          </div>
-          <GoSignOut />
+      <div className="mt-auto flex items-center gap-4 cursor-pointer">
+        <img
+          className="rounded-full h-6 w-6 object-cover"
+          src={assets.facebookIcon}
+          alt="User Profile"
+        />
+        <div>
+          <p className="text-sm font-medium">Arik Rai</p>
+          <p className="text-[10px] text-gray-600">raiarik97@gmail.com</p>
         </div>
+        <GoSignOut className="ms-4 text-gray-600 hover:text-gray-800 cursor-pointer" />
       </div>
     </div>
   );

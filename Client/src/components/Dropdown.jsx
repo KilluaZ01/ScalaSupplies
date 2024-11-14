@@ -1,23 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { IoAdd } from "react-icons/io5";
 import { FaCaretDown } from "react-icons/fa";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <div className="flex items-center space-x-3">
         <button
           onClick={toggleDropdown}
-          className="flex items-center px-4 py-2 bg-white text-gray-600 rounded-md drop-shadow-lg hover:bg-slate-100 focus:outline-none"
+          className="flex items-center px-3 py-2 text-sm bg-white text-gray-600 rounded-md drop-shadow-lg hover:bg-slate-100 focus:outline-none"
+          aria-expanded={isOpen}
+          aria-label="Toggle week selection dropdown"
         >
           Week
           <FaCaretDown className="ml-2" />
         </button>
-        <button className="px-4 py-2 bg-blue-700 text-white drop-shadow-lg rounded-md hover:bg-blue-600 focus:outline-none flex items-center">
+        <button className="px-3 py-2 text-sm bg-blue-700 text-white drop-shadow-lg rounded-md hover:bg-blue-600 focus:outline-none flex items-center">
           <IoAdd className="mr-2" />
           New Shipment
         </button>
@@ -26,20 +43,20 @@ const Dropdown = () => {
         <div
           className="absolute mt-2 w-48 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 ease-in-out"
           style={{
-            top: "100%", // Positions it directly below the button
-            zIndex: 10, // Ensures it appears over other elements
+            top: "100%",
+            zIndex: 10,
           }}
         >
-          <ul>
-            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-              Week 1
-            </li>
-            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-              Week 2
-            </li>
-            <li className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer">
-              Week 3
-            </li>
+          <ul className="py-1">
+            {["Week 1", "Week 2", "Week 3"].map((week, index) => (
+              <li
+                key={index}
+                className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-200 cursor-pointer"
+                onClick={() => setIsOpen(false)} // Close on selection
+              >
+                {week}
+              </li>
+            ))}
           </ul>
         </div>
       )}
