@@ -1,6 +1,7 @@
 import React from "react";
 import SlidingTab from "../SlidingTab";
 import Dropdown from "../Dropdown";
+import GridShipment from "../GridShipment";
 
 const DisplayShipment = () => {
   return (
@@ -9,9 +10,12 @@ const DisplayShipment = () => {
         <div>
           <SlidingTab />
         </div>
-        <div>
+        <div className="relative">
           <Dropdown />
         </div>
+      </div>
+      <div>
+        <GridShipment />
       </div>
     </div>
   );

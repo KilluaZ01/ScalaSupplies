@@ -74,9 +74,6 @@ const MonthlyBarChart = () => {
         },
       },
       y: {
-        title: {
-          display: true,
-        },
         beginAtZero: true,
       },
     },

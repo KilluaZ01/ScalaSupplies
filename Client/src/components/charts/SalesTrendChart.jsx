@@ -83,9 +83,6 @@ const SalesTrendChart = () => {
         },
       },
       y: {
-        title: {
-          display: true,
-        },
         beginAtZero: true,
       },
     },
