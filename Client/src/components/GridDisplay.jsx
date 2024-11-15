@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
+import {
+  FaArrowTrendDown,
+  FaArrowTrendUp,
+  FaFileExport,
+  FaFilter,
+} from "react-icons/fa6";
 import { assets } from "../assets/assets";
 import { FaCaretDown } from "react-icons/fa";
 import { SlOptions } from "react-icons/sl";
@@ -214,6 +219,26 @@ const GridDisplay = () => {
           </div>
         </div>
         <div className="col-span-8 bg-white drop-shadow-lg rounded-lg">
+          <div className="flex items-center px-4 py-2 rounded-t-lg bg-gray-200 flex-row justify-between">
+            <h1 className="font-medium text-sm">Shipment Tracking</h1>
+            <div>
+              <div className="relative">
+                <div className="flex items-center space-x-3">
+                  <button className="flex items-center text-xs px-3 py-1 bg-white text-gray-600 rounded-md drop-shadow-lg hover:bg-slate-100 focus:outline-none">
+                    <FaFilter className="mr-2" />
+                    Filter
+                  </button>
+                  <button className="flex items-center text-xs px-3 py-1 bg-white text-gray-600 rounded-md drop-shadow-lg hover:bg-slate-100 focus:outline-none">
+                    <FaFileExport className="mr-2" />
+                    Export
+                  </button>
+                  <button className="flex items-center p-2 bg-white h-6 w-6 text-gray-600 rounded-md drop-shadow-lg hover:bg-slate-100 focus:outline-none">
+                    <SlOptions />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <OrderTable />
         </div>
       </div>

@@ -38,7 +38,6 @@ const OrderTable = () => {
               color: "#28a745",
               padding: "5px 10px",
               borderRadius: "5px",
-              fontSize: "0.875rem", // small text size
             }}
           >
             Delivered
@@ -52,7 +51,6 @@ const OrderTable = () => {
               color: "#ffc107",
               padding: "5px 10px",
               borderRadius: "5px",
-              fontSize: "0.875rem", // small text size
             }}
           >
             Pending
@@ -66,14 +64,13 @@ const OrderTable = () => {
               color: "#17a2b8",
               padding: "5px 10px",
               borderRadius: "5px",
-              fontSize: "0.875rem", // small text size
             }}
           >
             Shipping
           </span>
         );
       default:
-        return <span style={{ fontSize: "0.875rem" }}>{status}</span>;
+        return <span>{status}</span>;
     }
   };
 
@@ -83,71 +80,30 @@ const OrderTable = () => {
         width: "100%",
         borderCollapse: "collapse",
         marginTop: "20px",
+        fontSize: "12px",
       }}
     >
       <thead>
         <tr style={{ backgroundColor: "#f8f9fa", textAlign: "left" }}>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             <input type="checkbox" />
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Order Id
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Category
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Delivery Time
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Destination
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Fee
           </th>
-          <th
-            style={{
-              padding: "10px",
-              borderBottom: "1px solid #dee2e6",
-              fontSize: "0.875rem",
-            }}
-          >
+          <th style={{ padding: "10px", borderBottom: "1px solid #dee2e6" }}>
             Status
           </th>
         </tr>
@@ -155,27 +111,15 @@ const OrderTable = () => {
       <tbody>
         {orders.map((order, index) => (
           <tr key={index} style={{ borderBottom: "1px solid #dee2e6" }}>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
+            <td style={{ padding: "10px" }}>
               <input type="checkbox" />
             </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {order.id}
-            </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {order.category}
-            </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {order.deliveryTime}
-            </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {order.destination}
-            </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {order.fee}
-            </td>
-            <td style={{ padding: "10px", fontSize: "0.875rem" }}>
-              {getStatusLabel(order.status)}
-            </td>
+            <td style={{ padding: "10px" }}>{order.id}</td>
+            <td style={{ padding: "10px" }}>{order.category}</td>
+            <td style={{ padding: "10px" }}>{order.deliveryTime}</td>
+            <td style={{ padding: "10px" }}>{order.destination}</td>
+            <td style={{ padding: "10px" }}>{order.fee}</td>
+            <td style={{ padding: "10px" }}>{getStatusLabel(order.status)}</td>
           </tr>
         ))}
       </tbody>

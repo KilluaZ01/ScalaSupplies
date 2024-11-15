@@ -82,7 +82,7 @@ const GridShipment = () => {
         </div>
         <div className="col-span-5 flex flex-col bg-white drop-shadow-lg rounded-lg">
           <div className="flex items-center px-4 py-2 rounded-t-lg bg-gray-200 flex-row justify-between">
-            <h1 className="font-medium text-sm">Total Sales</h1>
+            <h1 className="font-medium text-sm">Shipment Tracking</h1>
             <div>
               <div className="relative">
                 <div className="flex items-center space-x-3">
