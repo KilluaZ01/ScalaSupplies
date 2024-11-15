@@ -21,12 +21,14 @@ import china from "./china.svg";
 import india from "./india.svg";
 import usa from "./usa.svg";
 import france from "./france.svg";
+import pfp from "./profile photo.png";
 
 export const assets = {
   logo,
   loginArt,
   loginArt1,
   googleIcon,
+  pfp,
   facebookIcon,
   notification,
   search,

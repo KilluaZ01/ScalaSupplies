@@ -83,7 +83,7 @@ const Sidebar = () => {
       <div className="mt-auto flex items-center gap-4 cursor-pointer">
         <img
           className="rounded-full h-6 w-6 object-cover"
-          src={assets.facebookIcon}
+          src={assets.pfp}
           alt="User Profile"
         />
         <div>

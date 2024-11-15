@@ -36,10 +36,9 @@ const Navbar = () => {
             <div className="text-sm">
               <p className="font-medium text-gray-800">Arik Rai</p>
             </div>
-
             <img
               className="rounded-full h-6 w-6 object-cover"
-              src={assets.facebookIcon}
+              src={assets.pfp}
               alt="User Profile"
             />
           </div>
